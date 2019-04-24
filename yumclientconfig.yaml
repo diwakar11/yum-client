@@ -1,0 +1,38 @@
+- hosts: all
+  tasks:
+    - name: add multiple repo in same file (1/4)
+      yum_repository:
+        name: Base
+        description: for sssd installation
+        file: nc_repos
+        baseurl: http://yumsrv.netcracker.com/yum/CentOS/7.5.1804/os/$basearch/
+        gpgcheck: yes
+        enabled: yes
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+    - name: add multiple repo in same file (2/4)
+      yum_repository:
+        name: Updates
+        description: for sssd installation
+        file: nc_repos
+        baseurl: http://yumsrv.netcracker.com/yum/CentOS/7.5.1804/updates/$basearch/
+        gpgcheck: yes
+        enabled: yes
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+    - name: add multiple repo in same file (3/4)
+      yum_repository:
+        name: Extras
+        description: for sssd installation
+        file: nc_repos
+        baseurl: http://yumsrv.netcracker.com/yum/CentOS/7.5.1804/extras/$basearch/
+        gpgcheck: yes
+        enabled: yes
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+    - name: add multiple repo in same file (4/4)
+      yum_repository:
+        name: Plus
+        description: for sssd installation
+        file: nc_repos
+        baseurl: http://yumsrv.netcracker.com/yum/CentOS/7.5.1804/centosplus/$basearch/
+        gpgcheck: yes
+        enabled: yes
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
