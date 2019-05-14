@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------------------------------------------------
 Concept:- 
-
+task/setup-redhat.yml
 - name: Add Docker repository.
   get_url:
     url: "{{ docker_yum_repo_url }}"
@@ -9,9 +9,11 @@ Concept:-
     group: root
     mode: 0644
     
+  
+ default/main.yml  
+ Variable:- 
+ docker_yum_repo_url = docker_yum_repo_url: https://download.docker.com/linux/{{ (ansible_distribution == "Fedora") | ternary("fedora","centos") }}/docker-{{ docker_edition }}.repo
     
- Variable:- docker_yum_repo_url = docker_yum_repo_url: https://download.docker.com/linux/{{ (ansible_distribution == "Fedora") | ternary("fedora","centos") }}/docker-{{ docker_edition }}.repo
-    
-    
+  docker_edition = ce  
  -----------------------------------------------------------------------------------------------------------------------   
  
